@@ -37,6 +37,8 @@ public class C03_relativeLocators {
         WebElement hybridBikes = driver.findElement(By.xpath("//*[text()='Hybrid Bikes']"));
         WebElement electricBikes = driver.findElement(with(By.tagName("a")).below(hybridBikes));
         hybridBikes.click();
+
+        //Bu Ayda Hanim Icin Yapila
     }
 
 }
