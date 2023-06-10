@@ -1,0 +1,29 @@
+//arama kutusuna "city bike"  yazıp aratın
+WebElement aramaKutusu=driver.findElement(By.xpath("//input[@id='twotabsearchtextbox']"));
+Biz amazon sayfasinda HTML kodlarinin ciktigi yerin altinda xpath ile locate almadan once id degeri iki tane cikmisti
+xpath ile locate yapinca asagidaki cubuk yaninda deger bir olarak goruldu. Yani unique oldugunu anladik.
+
+sonuc sayisi, kodumuzu calistirinca sag ust kosede goruldu(14 results for "city bike") ve o sonuc yazisi uzerine gelip
+inspect yapinca HTML kodlari gorulur. Bu kod icerisinde 14 results for olarak sonuc sayisinin yer aldigini gorduk.
+Bu kismin bir text oldugunu anladik ve xpath ile locate alirken @'i kullanmadik text()= seklinde devam ettik.
+Cubugun yan kisminda 1 of 1 yazildigindan unique oldugunu anliyoruz. Eger HTML kodunda tagi span olan bir text iceren
+HTML kod cikmiyorsa bizde ne cikiyorsa ornek class attribute'i cikti, onunla locate alabiliriz.
+
+String sonucSayisi[]=sonucYazisi.getText().split(" ");
+//getText() ile sonucu String'e cevirdik
+String'e cevrilen yazimizin bosluklarini split methodu ile kaldirdik. split bize bir array return ettiginden
+bu sonucu String bir array'e assign ettik. Burada alacagimiz sonuc sayisi 14 olup ilk index'e karsilik gelecek.
+Bu nedenle array'in ilk indexini [0] ile aliriz
+System.out.println(sonucSayisi[0]);
+
+kodu calistirinca ilk urun olarak Saris Bike Racks, Bones Car Hitch Bicycle Rack Carrier, Mounts 3 Bikes,
+Black ekranda goruldu
+
+// ilk ürününe tıklayın
+ilk urunun yazisi uzerinde inspect yaptik
+class attribute'nun degerini aldik, 20 tane oldugunu unique olmadigini anladik.
+Bunu unique hale su sekilde getirdik: (//span[@class='a-size-medium a-color-base a-text-normal'])[1] yazinca 1 of 1 yazildi
+ve unique oldu
+[1] yazinca bu ilk urunun unique olan degerini almamiza neden oldu. xpath ile unique yapmak icin farkli olarak xpath
+parantezi icine alacagimiz kismi tamamen bir parantez icine aliriz. index 0'dan baslar ancak biz burada
+locate aliyoruz, locate alma isleminde 1'den baslariz. Bir list ile ilgili islem yapsaydik index 0 olurdu
