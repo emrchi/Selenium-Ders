@@ -64,7 +64,7 @@ public class C01_relativeLocators {
             Thread.sleep(1000);
 
         }
-        driver.close();
+        //driver.close();
 
     }
 }
